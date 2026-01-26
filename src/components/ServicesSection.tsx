@@ -2,7 +2,7 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Bot, Cloud, ArrowUpRight, Monitor } from "lucide-react";
+import { Bot, Cloud, ArrowUpRight, Monitor, GraduationCap } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,13 +17,19 @@ const services = [
     icon: Bot,
     title: "Software Automation",
     description: "Intelligent automation solutions that streamline operations, reduce costs, and unlock new levels of efficiency.",
-    color: "from-secondary to-accent",
+    color: "from-accent to-secondary",
   },
   {
     icon: Monitor,
     title: "Web Development",
     description: "High-performance, responsive web interfaces crafted with precision to deliver immersive user experiences.",
     color: "from-accent to-primary",
+  },
+  {
+    icon: GraduationCap,
+    title: "College Final Year Projects/Documentation",
+    description: "Comprehensive guidance and documentation support for final year academic projects, tailored to meet university standards.",
+    color: "from-secondary to-primary",
   },
 ];
 
@@ -108,7 +114,7 @@ const ServicesSection = () => {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto" style={{ perspective: "1000px" }}>
+        <div className="grid md:grid-cols-2 gap-6 max-w-7xl mx-auto" style={{ perspective: "1000px" }}>
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -132,7 +138,7 @@ const ServicesSection = () => {
                 />
 
                 {/* Icon with gradient background */}
-                <div className="mb-6 relative">
+                <div className="mb-6 relative z-10">
                   <motion.div
                     className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center`}
                     whileHover={{ rotate: [0, -10, 10, 0] }}
@@ -144,7 +150,7 @@ const ServicesSection = () => {
                 </div>
 
                 {/* Content */}
-                <div className="flex items-start justify-between gap-4">
+                <div className="flex items-start justify-between gap-4 relative z-10">
                   <div>
                     <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-gradient-primary transition-all duration-300">
                       {service.title}
